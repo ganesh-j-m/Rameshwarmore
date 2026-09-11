@@ -23,7 +23,7 @@ export async function updateProfile(
   const clean = {
     fullName: data.fullName,
     designation: data.designation,
-    tagline: data.tagline || null,
+    tagline: data.tagline || undefined,
     heroImageUrl: data.heroImageUrl || null,
     aboutShort: data.aboutShort || null,
     aboutLong: data.aboutLong || null,
