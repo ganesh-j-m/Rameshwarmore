@@ -1,0 +1,287 @@
+export type FieldType = "text" | "textarea" | "number" | "date" | "boolean" | "select" | "url";
+
+export type EntityField = {
+  name: string;
+  label: string;
+  type: FieldType;
+  required?: boolean;
+  options?: string[]; // for type: "select"
+  helpText?: string;
+};
+
+export type EntityConfig = {
+  key: string; // used in URL: /admin/[key]
+  model: string; // Prisma client property name
+  label: string; // plural display label
+  singularLabel: string;
+  fields: EntityField[];
+  listColumns: string[]; // subset of field names shown in the table
+  defaultOrderBy?: { field: string; direction: "asc" | "desc" };
+};
+
+export const entityConfigs: EntityConfig[] = [
+  {
+    key: "education",
+    model: "education",
+    label: "Education",
+    singularLabel: "Education Entry",
+    fields: [
+      { name: "level", label: "Level (e.g. SSC, HSC, B.A., M.A. Marathi)", type: "text", required: true },
+      { name: "institution", label: "Institution", type: "text", required: true },
+      { name: "boardOrUni", label: "Board / University", type: "text", required: true },
+      { name: "year", label: "Year", type: "number", required: true },
+      { name: "percentage", label: "Percentage", type: "number", required: true },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["level", "institution", "year", "percentage"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "research",
+    model: "researchProject",
+    label: "Research Projects",
+    singularLabel: "Research Project",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "type", label: "Type (e.g. Dissertation)", type: "text", required: true },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "year", label: "Year", type: "number" },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "type", "year"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "publications",
+    model: "publication",
+    label: "Publications",
+    singularLabel: "Publication",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "journal", label: "Journal", type: "text", required: true },
+      { name: "publisher", label: "Publisher", type: "text" },
+      { name: "eIssn", label: "E-ISSN", type: "text" },
+      { name: "month", label: "Month", type: "text" },
+      { name: "year", label: "Year", type: "number", required: true },
+      { name: "url", label: "URL", type: "url" },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "journal", "year"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "journey",
+    model: "journeyItem",
+    label: "Journey / Timeline",
+    singularLabel: "Journey Item",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "organization", label: "Organization", type: "text" },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "startYear", label: "Start Year", type: "number" },
+      { name: "endYear", label: "End Year", type: "number" },
+      {
+        name: "category",
+        label: "Category",
+        type: "select",
+        options: ["KIRTAN", "EXPERIENCE", "EDUCATION", "MILESTONE"],
+        required: true,
+      },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "category", "startYear"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "awards",
+    model: "award",
+    label: "Awards & Honours",
+    singularLabel: "Award",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "organization", label: "Awarding Organization", type: "text", required: true },
+      { name: "year", label: "Year", type: "number" },
+      { name: "date", label: "Date", type: "date" },
+      { name: "location", label: "Location", type: "text" },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "certificateUrl", label: "Certificate URL", type: "url" },
+      { name: "imageUrl", label: "Award Image URL", type: "url" },
+      { name: "featured", label: "Featured", type: "boolean" },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "organization", "year", "featured"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "events",
+    model: "event",
+    label: "Events & Programs",
+    singularLabel: "Event",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "slug", label: "URL Slug", type: "text", required: true, helpText: "e.g. kirtan-program-pune-2026" },
+      { name: "eventDate", label: "Event Date", type: "date" },
+      { name: "time", label: "Time", type: "text" },
+      { name: "venue", label: "Venue", type: "text" },
+      { name: "city", label: "City", type: "text" },
+      { name: "organizer", label: "Organizer", type: "text" },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "posterUrl", label: "Poster Image URL", type: "url" },
+      { name: "mapsUrl", label: "Google Maps URL", type: "url" },
+      { name: "registrationUrl", label: "Registration URL", type: "url" },
+      { name: "contactNumber", label: "Contact Number", type: "text" },
+      { name: "status", label: "Status", type: "select", options: ["UPCOMING", "COMPLETED", "CANCELLED"], required: true },
+      { name: "featured", label: "Featured", type: "boolean" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "eventDate", "city", "status"],
+    defaultOrderBy: { field: "eventDate", direction: "desc" },
+  },
+  {
+    key: "lectures",
+    model: "lecture",
+    label: "Lectures & Workshops",
+    singularLabel: "Lecture / Workshop",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      {
+        name: "type",
+        label: "Type",
+        type: "select",
+        options: ["LECTURE", "WORKSHOP", "CONFERENCE", "DISCUSSION"],
+      },
+      { name: "organizer", label: "Organizer", type: "text" },
+      { name: "location", label: "Location", type: "text" },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "year", label: "Year", type: "number" },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "type", "location", "year"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "certifications",
+    model: "certification",
+    label: "Certifications",
+    singularLabel: "Certification",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "issuer", label: "Issuing Organization", type: "text", required: true },
+      { name: "score", label: "Score", type: "text" },
+      { name: "date", label: "Date", type: "date" },
+      { name: "certificateUrl", label: "Certificate Image URL", type: "url" },
+      { name: "verificationUrl", label: "Verification URL", type: "url" },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "issuer", "score"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "videos",
+    model: "video",
+    label: "Videos",
+    singularLabel: "Video",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "youtubeUrl", label: "YouTube URL", type: "url", required: true },
+      { name: "thumbnailUrl", label: "Thumbnail URL", type: "url" },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "category", label: "Category", type: "text" },
+      { name: "date", label: "Date", type: "date" },
+      { name: "featured", label: "Featured", type: "boolean" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "category", "date"],
+    defaultOrderBy: { field: "date", direction: "desc" },
+  },
+  {
+    key: "social-work",
+    model: "socialWork",
+    label: "Social Work",
+    singularLabel: "Social Work Activity",
+    fields: [
+      { name: "title", label: "Title", type: "text", required: true },
+      { name: "date", label: "Date", type: "date" },
+      { name: "location", label: "Location", type: "text" },
+      { name: "organization", label: "Organization", type: "text" },
+      { name: "description", label: "Description", type: "textarea" },
+      { name: "imageUrl", label: "Image URL", type: "url" },
+      { name: "videoUrl", label: "Video URL", type: "url" },
+      { name: "impact", label: "Impact", type: "textarea" },
+      { name: "featured", label: "Featured", type: "boolean" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["title", "location", "date"],
+    defaultOrderBy: { field: "date", direction: "desc" },
+  },
+  {
+    key: "testimonials",
+    model: "testimonial",
+    label: "Testimonials",
+    singularLabel: "Testimonial",
+    fields: [
+      { name: "name", label: "Name", type: "text", required: true },
+      { name: "role", label: "Role", type: "text" },
+      { name: "organization", label: "Organization", type: "text" },
+      { name: "profileImage", label: "Profile Image URL", type: "url" },
+      { name: "testimonial", label: "Testimonial", type: "textarea", required: true },
+      { name: "rating", label: "Rating (1-5)", type: "number" },
+      { name: "featured", label: "Featured", type: "boolean" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["name", "organization", "rating", "published"],
+    defaultOrderBy: { field: "createdAt", direction: "desc" },
+  },
+  {
+    key: "social-links",
+    model: "socialLink",
+    label: "Social Links",
+    singularLabel: "Social Link",
+    fields: [
+      { name: "platform", label: "Platform (e.g. YouTube, Instagram)", type: "text", required: true },
+      { name: "url", label: "URL", type: "url", required: true },
+      { name: "order", label: "Display Order", type: "number" },
+      { name: "published", label: "Published", type: "boolean" },
+    ],
+    listColumns: ["platform", "url"],
+    defaultOrderBy: { field: "order", direction: "asc" },
+  },
+  {
+    key: "contact-inquiries",
+    model: "contactInquiry",
+    label: "Contact Inquiries",
+    singularLabel: "Inquiry",
+    fields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true },
+      { name: "mobileNumber", label: "Mobile Number", type: "text", required: true },
+      { name: "email", label: "Email", type: "text" },
+      { name: "organization", label: "Organization", type: "text" },
+      { name: "programType", label: "Program Type", type: "text" },
+      { name: "eventDate", label: "Event Date", type: "date" },
+      { name: "venue", label: "Venue", type: "text" },
+      { name: "city", label: "City", type: "text" },
+      { name: "expectedAudience", label: "Expected Audience", type: "text" },
+      { name: "message", label: "Message", type: "textarea" },
+      {
+        name: "status",
+        label: "Status",
+        type: "select",
+        options: ["NEW", "CONTACTED", "CONFIRMED", "CLOSED"],
+        required: true,
+      },
+    ],
+    listColumns: ["fullName", "mobileNumber", "programType", "status"],
+    defaultOrderBy: { field: "createdAt", direction: "desc" },
+  },
+];
+
+export function getEntityConfig(key: string) {
+  return entityConfigs.find((e) => e.key === key);
+}

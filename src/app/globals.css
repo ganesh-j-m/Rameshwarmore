@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --font-display and --font-body are set on <html> by next/font in layout.tsx */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+}
+
+::selection {
+  @apply bg-gold/30 text-ink;
+}
+
+*:focus-visible {
+  outline: 2px solid theme("colors.maroon.DEFAULT");
+  outline-offset: 2px;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Prose styling for blog post body content */
+.prose-marathi {
+  @apply max-w-prose text-inkSoft;
+}
+.prose-marathi h2 {
+  @apply font-display text-2xl text-ink mt-10 mb-4;
+}
+.prose-marathi p {
+  @apply mb-5 leading-relaxed;
+}
+.prose-marathi a {
+  @apply text-maroon underline underline-offset-2;
+}
+.prose-marathi ul {
+  @apply mb-5 ml-5 list-disc space-y-1;
+}
