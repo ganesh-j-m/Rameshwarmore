@@ -14,16 +14,27 @@ export async function updateProfile(
   const session = await getSession();
   if (!session) return { status: "error", message: "Not authenticated." };
 
-  const parsed = profileSchema.safeParse(Object.fromEntries(formData.entries()));
+  const parsed = profileSchema.safeParse(
+    Object.fromEntries(formData.entries())
+  );
+
   if (!parsed.success) {
-    return { status: "error", message: parsed.error.issues[0]?.message ?? "Please check the form." };
+    return {
+      status: "error",
+      message:
+        parsed.error.issues[0]?.message ?? "Please check the form.",
+    };
   }
 
   const data = parsed.data;
+
   const clean = {
     fullName: data.fullName,
     designation: data.designation,
+
+    // IMPORTANT: Prisma schema मध्ये tagline required String आहे.
     tagline: data.tagline || undefined,
+
     heroImageUrl: data.heroImageUrl || null,
     aboutShort: data.aboutShort || null,
     aboutLong: data.aboutLong || null,
@@ -39,12 +50,21 @@ export async function updateProfile(
   const existing = await prisma.profile.findFirst();
 
   if (existing) {
-    await prisma.profile.update({ where: { id: existing.id }, data: clean });
+    await prisma.profile.update({
+      where: { id: existing.id },
+      data: clean,
+    });
   } else {
-    await prisma.profile.create({ data: clean });
+    await prisma.profile.create({
+      data: clean,
+    });
   }
 
-  const ip = headers().get("x-forwarded-for")?.split(",")[0]?.trim();
+  const ip = headers()
+    .get("x-forwarded-for")
+    ?.split(",")[0]
+    ?.trim();
+
   await prisma.activityLog
     .create({
       data: {
@@ -61,5 +81,8 @@ export async function updateProfile(
   revalidatePath("/");
   revalidatePath("/about");
 
-  return { status: "success", message: "Profile updated." };
+  return {
+    status: "success",
+    message: "Profile updated.",
+  };
 }
