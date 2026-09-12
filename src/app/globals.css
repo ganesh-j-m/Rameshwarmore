@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  @apply bg-paper text-ink font-body antialiased;
+  @apply bg-paper text-ink font-display antialiased;
 }
 
 ::selection {
@@ -29,6 +29,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -43,15 +44,19 @@ body {
 .prose-marathi {
   @apply max-w-prose text-inkSoft;
 }
+
 .prose-marathi h2 {
   @apply font-display text-2xl text-ink mt-10 mb-4;
 }
+
 .prose-marathi p {
   @apply mb-5 leading-relaxed;
 }
+
 .prose-marathi a {
   @apply text-maroon underline underline-offset-2;
 }
+
 .prose-marathi ul {
   @apply mb-5 ml-5 list-disc space-y-1;
 }
