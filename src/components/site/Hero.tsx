@@ -24,7 +24,7 @@ export function Hero({
           <h1 className="mt-4 font-display text-4xl leading-[1.1] text-ink sm:text-5xl lg:text-6xl">
             Rameshwar
             <br />
-            Parmeshwar More
+            More
           </h1>
           <p className="mt-5 text-lg text-maroon">{designation}</p>
           <p className="mt-5 max-w-md text-base leading-relaxed text-inkSoft">{tagline}</p>
