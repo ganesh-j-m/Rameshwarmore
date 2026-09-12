@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif_Devanagari, Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -7,16 +7,16 @@ import { SiteChrome } from "@/components/site/SiteChrome";
 import { prisma } from "@/lib/prisma";
 import { profile as verifiedProfile, seoKeywords } from "@/lib/data/verified-biodata";
 
-const displayFont = Noto_Serif_Devanagari({
-  subsets: ["devanagari", "latin"],
-  weight: ["400", "500", "600", "700"],
+const displayFont = Poppins({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
-const bodyFont = Inter({
+const bodyFont = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-body",
   display: "swap",
 });

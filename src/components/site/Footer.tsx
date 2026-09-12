@@ -34,9 +34,9 @@ export async function Footer() {
       <div className="mx-auto max-w-content px-5 py-14 sm:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-display text-lg text-ink">Ganesh More</p>
+            <p className="font-display text-lg text-ink">Rameshwar More</p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-inkSoft">
-              Design and Develop
+              Youth Leader of MH State
             </p>
             {socialLinks.length > 0 && (
               <div className="mt-4 flex gap-4">
@@ -95,7 +95,7 @@ export async function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 text-xs text-inkSoft sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Rameshwar Parmeshwar More. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ganesh More All rights reserved.</p>
           <Link href="/admin/login" className="hover:text-maroon">
             Admin
           </Link>
