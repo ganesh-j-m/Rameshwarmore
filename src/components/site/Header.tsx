@@ -40,7 +40,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-xl text-maroon">रा</span>
+          <span className="font-display text-xl text-maroon"></span>
           <span className="font-display text-lg text-ink">Rameshwar More</span>
         </Link>
 
