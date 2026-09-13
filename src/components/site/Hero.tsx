@@ -30,9 +30,9 @@ export function Hero({
           <p className="mt-5 max-w-md text-base leading-relaxed text-inkSoft">{tagline}</p>
 
           <div className="mt-9 flex flex-wrap gap-4">
-            <Link href="/contact" className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
+            {/* <Link href="/contact" className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
               Invite for Kirtan / Program
-            </Link>
+            </Link> */}
             <Link href="/about" className={cn(buttonVariants({ variant: "secondary", size: "lg" }))}>
               Explore My Journey
             </Link>
