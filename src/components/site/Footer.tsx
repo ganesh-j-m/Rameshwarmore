@@ -17,9 +17,9 @@ const columns = [
     links: [
       { href: "/events", label: "Events & Programs" },
       { href: "/social-work", label: "Social Work" },
-      { href: "/gallery", label: "Gallery" },
-      { href: "/videos", label: "Videos" },
-      { href: "/blog", label: "Blog" },
+      // { href: "/gallery", label: "Gallery" },
+      // { href: "/videos", label: "Videos" },
+      // { href: "/blog", label: "Blog" },
     ],
   },
 ];
