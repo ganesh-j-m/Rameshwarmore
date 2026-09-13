@@ -13,7 +13,7 @@ const primaryLinks = [
   { href: "/about", label: "About" },
   { href: "/awards", label: "Awards" },
   { href: "/events", label: "Events" },
-  { href: "/gallery", label: "Gallery" },
+  // { href: "/gallery", label: "Gallery" },
   // { href: "/blog", label: "Blog" },
 ];
 
@@ -23,7 +23,7 @@ const moreLinks = [
   { href: "/lectures", label: "Lectures & Workshops" },
   // { href: "/certifications", label: "Certifications" },
   // { href: "/videos", label: "Videos" },
-  { href: "/social-work", label: "Social Work" },
+  // { href: "/social-work", label: "Social Work" },
 ];
 
 export function Header() {

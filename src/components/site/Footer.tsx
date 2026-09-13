@@ -36,7 +36,7 @@ export async function Footer() {
           <div>
             <p className="font-display text-lg text-ink">Rameshwar More</p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-inkSoft">
-              Youth Leader of Maharastra
+              Youth Leader from Maharastra
             </p>
             {socialLinks.length > 0 && (
               <div className="mt-4 flex gap-4">
