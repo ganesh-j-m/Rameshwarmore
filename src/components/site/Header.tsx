@@ -14,15 +14,15 @@ const primaryLinks = [
   { href: "/awards", label: "Awards" },
   { href: "/events", label: "Events" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/blog", label: "Blog" },
 ];
 
 const moreLinks = [
   { href: "/education", label: "Education" },
   { href: "/research", label: "Research" },
   { href: "/lectures", label: "Lectures & Workshops" },
-  { href: "/certifications", label: "Certifications" },
-  { href: "/videos", label: "Videos" },
+  // { href: "/certifications", label: "Certifications" },
+  // { href: "/videos", label: "Videos" },
   { href: "/social-work", label: "Social Work" },
 ];
 
@@ -83,9 +83,9 @@ export function Header() {
             )}
           </div>
 
-          <Link href="/contact" className={cn(buttonVariants({ variant: "primary", size: "sm" }))}>
+          {/* <Link href="/contact" className={cn(buttonVariants({ variant: "primary", size: "sm" }))}>
             Invite for a Program
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Mobile toggle */}
@@ -114,9 +114,9 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="mt-3">
+            {/* <Link href="/contact" className="mt-3">
               <Button className="w-full">Invite for a Program</Button>
-            </Link>
+            </Link> */}
           </nav>
         </div>
       )}
