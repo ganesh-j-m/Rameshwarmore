@@ -29,7 +29,7 @@ export function Hero({
           <h1 className="mt-4 font-display text-4xl leading-[1.1] text-ink sm:text-5xl lg:text-6xl">
             Rameshwar
             <br />
-            Parmeshwar More
+            More
           </h1>
           <p className="mt-5 text-lg text-maroon">{designation}</p>
           <p className="mt-5 max-w-md text-base leading-relaxed text-inkSoft">{tagline}</p>
@@ -44,7 +44,7 @@ export function Hero({
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-md border border-line bg-paperDim">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-md border border-line bg-paperDim">
           {slides.length >= 2 ? (
             <HeroCarousel images={slides} alt="Rameshwar Parmeshwar More" />
           ) : slides[0] || heroImageUrl ? (
