@@ -15,7 +15,7 @@ export const profile = {
   designation: "Kirtankar | Speaker | Researcher | Social Contributor",
   tagline: "Connecting Tradition, Knowledge, Literature and Social Awareness.",
   email: "rameshwarmore9964@gmail.com",
-  // phone: "7517363644",
+  phone: "7517363644",
   address: "Talukhed, Taluka Majalgaon, District Beed, Maharashtra",
   dateOfBirth: "2003-02-12",
   languagesSpoken: "Marathi, Hindi, English",
