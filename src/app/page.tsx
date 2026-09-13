@@ -71,6 +71,7 @@ export default async function HomePage() {
         designation={designation}
         tagline={tagline}
         heroImageUrl={profile?.heroImageUrl}
+        heroImages={profile?.heroImages}
         yearsOfKirtan={yearsOfKirtan}
       />
 

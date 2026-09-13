@@ -21,6 +21,7 @@ export default async function AdminProfilePage() {
           designation: profile?.designation ?? verifiedProfile.designation,
           tagline: profile?.tagline ?? verifiedProfile.tagline,
           heroImageUrl: profile?.heroImageUrl ?? "",
+          heroImagesText: (profile?.heroImages ?? []).join("\n"),
           aboutShort: profile?.aboutShort ?? verifiedProfile.aboutShort,
           aboutLong: profile?.aboutLong ?? verifiedProfile.aboutLong,
           email: profile?.email ?? verifiedProfile.email,
