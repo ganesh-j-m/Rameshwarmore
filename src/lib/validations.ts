@@ -30,6 +30,7 @@ export const profileSchema = z.object({
   designation: z.string().trim().min(2, "Designation is required").max(150),
   tagline: z.string().trim().max(200).optional().or(z.literal("")),
   heroImageUrl: z.string().trim().url("Enter a valid URL").optional().or(z.literal("")),
+  heroImagesText: z.string().trim().max(3000).optional().or(z.literal("")),
   aboutShort: z.string().trim().max(600).optional().or(z.literal("")),
   aboutLong: z.string().trim().max(5000).optional().or(z.literal("")),
   email: z.string().trim().email("Enter a valid email").optional().or(z.literal("")),

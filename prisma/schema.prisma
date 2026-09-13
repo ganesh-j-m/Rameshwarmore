@@ -46,6 +46,7 @@ model Profile {
   designation      String   @default("Kirtankar | Speaker | Researcher | Social Contributor")
   tagline          String   @default("Connecting Tradition, Knowledge, Literature and Social Awareness.")
   heroImageUrl     String?
+  heroImages       String[] @default([])
   aboutShort       String?  @db.Text
   aboutLong        String?  @db.Text
   email            String?

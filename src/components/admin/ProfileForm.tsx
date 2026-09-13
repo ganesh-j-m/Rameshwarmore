@@ -15,6 +15,7 @@ type ProfileValues = {
   designation: string;
   tagline: string;
   heroImageUrl: string;
+  heroImagesText: string;
   aboutShort: string;
   aboutLong: string;
   email: string;
@@ -57,6 +58,21 @@ export function ProfileForm({ profile }: { profile: ProfileValues }) {
         <div>
           <Label htmlFor="heroImageUrl">Hero Photo URL</Label>
           <Input id="heroImageUrl" name="heroImageUrl" type="url" defaultValue={profile.heroImageUrl} placeholder="https://res.cloudinary.com/…" />
+          <p className="mt-1 text-xs text-inkSoft">Used only when the slideshow below is empty.</p>
+        </div>
+        <div>
+          <Label htmlFor="heroImagesText">Hero Slideshow Images</Label>
+          <Textarea
+            id="heroImagesText"
+            name="heroImagesText"
+            defaultValue={profile.heroImagesText}
+            rows={4}
+            placeholder={"https://res.cloudinary.com/one.jpg\nhttps://res.cloudinary.com/two.jpg\nhttps://res.cloudinary.com/three.jpg"}
+          />
+          <p className="mt-1 text-xs text-inkSoft">
+            One image URL per line. If you add 2 or more, the homepage will show them as an
+            auto-rotating slideshow with left/right arrows instead of a single photo.
+          </p>
         </div>
         <div>
           <Label htmlFor="yearsOfKirtan">Years of Kirtan</Label>
