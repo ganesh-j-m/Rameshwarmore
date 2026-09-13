@@ -23,7 +23,7 @@ const moreLinks = [
   { href: "/lectures", label: "Lectures & Workshops" },
   // { href: "/certifications", label: "Certifications" },
   // { href: "/videos", label: "Videos" },
-  // { href: "/social-work", label: "Social Work" },
+  { href: "/social-work", label: "Social Work" },
 ];
 
 export function Header() {
