@@ -31,7 +31,7 @@ export function Hero({
             <br />
             More
           </h1>
-          <p className="mt-5 text-lg text-maroon">Founder of Suryaseva Green Energy Pvt Ltd{designation}</p>
+          <p className="mt-5 text-lg text-maroon">Founder of Suryaseva Green Energy Pvt Ltd|{designation}</p>
           <p className="mt-5 max-w-md text-base leading-relaxed text-inkSoft">{tagline}</p>
 
           <div className="mt-9 flex flex-wrap gap-4">

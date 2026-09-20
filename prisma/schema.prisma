@@ -47,6 +47,7 @@ model Profile {
   tagline          String   @default("Connecting Tradition, Knowledge, Literature and Social Awareness.")
   heroImageUrl     String?
   heroImages       String[] @default([])
+  bannerImages     String[] @default([])
   aboutShort       String?  @db.Text
   aboutLong        String?  @db.Text
   email            String?

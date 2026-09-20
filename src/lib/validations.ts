@@ -40,4 +40,5 @@ export const profileSchema = z.object({
   yearsOfKirtan: z.coerce.number().int().min(0).max(80).optional(),
   metaTitle: z.string().trim().max(160).optional().or(z.literal("")),
   metaDescription: z.string().trim().max(300).optional().or(z.literal("")),
+  bannerImagesText: z.string().trim().max(3000).optional().or(z.literal("")),
 });

@@ -16,6 +16,7 @@ type ProfileValues = {
   tagline: string;
   heroImageUrl: string;
   heroImagesText: string;
+  bannerImagesText: string;
   aboutShort: string;
   aboutLong: string;
   email: string;
@@ -72,6 +73,19 @@ export function ProfileForm({ profile }: { profile: ProfileValues }) {
           <p className="mt-1 text-xs text-inkSoft">
             One image URL per line. If you add 2 or more, the homepage will show them as an
             auto-rotating slideshow with left/right arrows instead of a single photo.
+          </p>
+        </div>
+        <div>
+          <Label htmlFor="bannerImagesText">Homepage Banner Slideshow</Label>
+          <Textarea
+            id="bannerImagesText"
+            name="bannerImagesText"
+            defaultValue={profile.bannerImagesText}
+            rows={4}
+            placeholder={"https://res.cloudinary.com/banner1.jpg\nhttps://res.cloudinary.com/banner2.jpg"}
+          />
+          <p className="mt-1 text-xs text-inkSoft">
+            One image URL per line — shows as a wide rotating banner just below the hero section.
           </p>
         </div>
         <div>

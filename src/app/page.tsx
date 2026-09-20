@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Hero } from "@/components/site/Hero";
+import { BannerCarousel } from "@/components/site/BannerCarousel";
 import { Section, SectionHeading } from "@/components/site/Section";
 import { StatCard } from "@/components/site/StatCard";
 import { AwardCard } from "@/components/site/AwardCard";
@@ -64,6 +65,7 @@ export default async function HomePage() {
   const tagline = profile?.tagline || verifiedProfile.tagline;
   const yearsOfKirtan = profile?.yearsOfKirtan ?? verifiedProfile.yearsOfKirtan;
   const aboutShort = profile?.aboutShort || verifiedProfile.aboutShort;
+  const bannerImages = (profile?.bannerImages ?? []).filter(Boolean);
 
   return (
     <>
@@ -74,6 +76,13 @@ export default async function HomePage() {
         heroImages={profile?.heroImages}
         yearsOfKirtan={yearsOfKirtan}
       />
+
+      {/* Homepage banner slideshow */}
+      {bannerImages.length >= 2 && (
+        <Section tone="paper">
+          <BannerCarousel images={bannerImages} />
+        </Section>
+      )}
 
       {/* Key Highlights */}
       <Section tone="paper">

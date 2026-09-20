@@ -33,6 +33,11 @@ export async function updateProfile(
     .map((line) => line.trim())
     .filter(Boolean);
 
+  const bannerImages = (data.bannerImagesText || "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
   const clean = {
     fullName: data.fullName,
     designation: data.designation,
@@ -42,6 +47,7 @@ export async function updateProfile(
 
     heroImageUrl: data.heroImageUrl || null,
     heroImages,
+    bannerImages,
     aboutShort: data.aboutShort || null,
     aboutLong: data.aboutLong || null,
     email: data.email || null,
