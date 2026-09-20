@@ -12,7 +12,7 @@
 
 export const profile = {
   fullName: "Rameshwar Parmeshwar More",
-  designation: "Kirtankar | Speaker | Researcher | Social Contributor",
+  designation: "Founder of Suryaseva Green Energy Pvt Ltd | Kirtankar | Speaker | Researcher | Social Contributor",
   tagline: "Connecting Tradition, Knowledge, Literature and Social Awareness.",
   email: "rameshwarmore9964@gmail.com",
   phone: "7517363644",
