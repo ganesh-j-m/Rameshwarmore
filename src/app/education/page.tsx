@@ -19,7 +19,7 @@ export default async function EducationPage() {
     <>
       <PageHeader
         title="Education & Academic Journey"
-        description="From SSC to a Master's degree in Marathi literature."
+      // description="From SSC to a Master's degree in Marathi literature."
       />
       <Section tone="paper">
         {education.length === 0 ? (
