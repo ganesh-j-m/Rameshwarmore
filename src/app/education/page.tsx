@@ -32,7 +32,7 @@ export default async function EducationPage() {
                 <p className="text-xs font-medium tracking-wide text-gold-dark">{e.year}</p>
                 <h3 className="mt-1 font-display text-xl text-ink">{e.level}</h3>
                 <p className="mt-1 text-sm text-inkSoft">{e.institution}</p>
-                <p className="mt-2 text-2xl font-display text-maroon">{e.percentage}%</p>
+                {/* <p className="mt-2 text-2xl font-display text-maroon">{e.percentage}%</p> */}
               </li>
             ))}
           </ol>

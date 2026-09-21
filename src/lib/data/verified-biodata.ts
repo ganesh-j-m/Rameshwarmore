@@ -32,7 +32,6 @@ export const education = [
     institution: "Aurangabad Division",
     boardOrUni: "Aurangabad Divisional Board",
     year: 2019,
-    percentage: 71.6,
     order: 1,
   },
   {
