@@ -32,6 +32,7 @@ export const education = [
     institution: "Aurangabad Division",
     boardOrUni: "Aurangabad Divisional Board",
     year: 2019,
+    percentage: 71.6,
     order: 1,
   },
   {
@@ -39,6 +40,7 @@ export const education = [
     institution: "Aurangabad Division",
     boardOrUni: "Aurangabad Divisional Board",
     year: 2021,
+    percentage: 69.5,
     order: 2,
   },
   {
@@ -46,6 +48,7 @@ export const education = [
     institution: "Dr. Babasaheb Ambedkar Marathwada University, Aurangabad",
     boardOrUni: "Dr. Babasaheb Ambedkar Marathwada University",
     year: 2024,
+    percentage: 59.54,
     order: 3,
   },
   {
