@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Education",
-  description: "Academic journey of Rameshwar Parmeshwar More — B.A. and M.A. Marathi.",
+  description: "Academic journey of Rameshwar Parmeshwar More",
 };
 
 export default async function EducationPage() {
